@@ -1,0 +1,1018 @@
+/* ============================================
+GUITAR MASTER 
+GDI2100 Web Design 
+Dinith Ranasinghe
+   
+
+   ============================================ */
+
+/* ============================================
+   1. CSS RESET
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   2. COLOR VARIABLES
+   ============================================ */
+:root {
+    --charcoal: #2b2d2e;
+    --wood-brown: #8b6f47;
+    --off-white: #f5f5f0;
+    --cream: #faf8f3;
+    --dark-wood: #6b5333;
+    --light-charcoal: #4a4c4d;
+    --accent-gold: #d4a574;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   3. TYPOGRAPHY
+   
+   ============================================ */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    background-color: var(--off-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-medium);
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 600; margin-top: var(--spacing-large); }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.2rem; font-weight: 600; color: var(--wood-brown); }
+
+p {
+    margin-bottom: var(--spacing-medium);
+    line-height: 1.8;
+}
+
+em {
+    font-style: italic;
+    color: var(--wood-brown);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--charcoal);
+}
+
+/* ============================================
+   4. HEADER STYLES
+   ============================================ */
+header {
+    background-color: var(--charcoal);
+    color: var(--off-white);
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--off-white);
+}
+
+header h1 a {
+    color: var(--off-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+    color: var(--accent-gold);
+}
+
+/* ============================================
+   5. NAVIGATION 
+   ============================================ */
+nav {
+    background-color: var(--wood-brown);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* FLEXBOX: Horizontal navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: var(--off-white);
+    text-decoration: none;
+    padding: var(--spacing-medium) var(--spacing-large);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--dark-wood);
+    color: white;
+}
+
+nav ul li a.current {
+    background-color: var(--charcoal);
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+/* ============================================
+   6. MAIN CONTENT
+   ============================================ */
+main {
+    padding: var(--spacing-large);
+    min-height: 400px;
+}
+
+section {
+    margin-bottom: var(--spacing-large);
+    padding: var(--spacing-large);
+    background-color: var(--cream);
+    border-left: 4px solid var(--wood-brown);
+    border-radius: 4px;
+}
+
+article {
+    margin-bottom: var(--spacing-large);
+}
+
+blockquote {
+    background-color: #faf8f3;
+    border-left: 5px solid var(--wood-brown);
+    padding: var(--spacing-medium) var(--spacing-large);
+    margin: var(--spacing-large) 0;
+    font-style: italic;
+    color: var(--light-charcoal);
+}
+
+blockquote footer {
+    margin-top: var(--spacing-small);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* ============================================
+   7. LINKS
+   ============================================ */
+a {
+    color: var(--wood-brown);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--dark-wood);
+    text-decoration: underline;
+}
+
+.cta-button,
+.external-link {
+    display: inline-block;
+    background-color: var(--wood-brown);
+    color: white;
+    padding: var(--spacing-medium) var(--spacing-large);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: var(--spacing-medium);
+}
+
+.cta-button:hover,
+.external-link:hover {
+    background-color: var(--dark-wood);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* ============================================
+   8. LESSONS PAGE STYLES
+   ============================================ */
+.lesson {
+    background-color: white;
+    padding: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+.lesson-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: var(--spacing-medium) 0;
+    box-shadow: var(--shadow);
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #777;
+    text-align: center;
+}
+
+.posture-guide {
+    background-color: var(--cream);
+    padding: var(--spacing-large);
+    border-radius: 4px;
+    margin-top: var(--spacing-medium);
+}
+
+/* FLEXBOX: Lesson content layout */
+.lesson-content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Info list styling */
+.info-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.info-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+/* FLEXBOX: Chord grid */
+.chord-grid {
+    display: flex;
+    gap: var(--spacing-large);
+    margin: var(--spacing-large) 0;
+    flex-wrap: wrap;
+}
+
+.chord-card {
+    flex: 1;
+    min-width: 250px;
+    background-color: white;
+    padding: var(--spacing-medium);
+    border: 2px solid var(--wood-brown);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chord-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chord-card h3 {
+    color: var(--wood-brown);
+    margin-top: 0;
+}
+
+.chord-image {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.chord-info ul {
+    text-align: left;
+    margin-top: 1rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.chord-info ul li {
+    padding: 0.3rem 0;
+}
+
+.chord-tip {
+    background-color: #fff8e1;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+/* Video section */
+.video-section {
+    margin-top: 2rem;
+}
+
+.video-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.video-card {
+    flex: 1;
+    min-width: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.video-card h4 {
+    color: white;
+    margin-top: 0;
+}
+
+.pattern-notation {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 1rem 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem;
+    border-radius: 5px;
+}
+
+.video-link {
+    display: inline-block;
+    background-color: white;
+    color: #667eea;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.video-link:hover {
+    background-color: var(--accent-gold);
+    color: white;
+    transform: scale(1.05);
+}
+
+.video-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.tips-box {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 5px solid #00acc1;
+}
+
+/* Song sheet */
+.song-sheet {
+    background: linear-gradient(to bottom, #f5f5f5, #ffffff);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    border: 2px solid var(--accent-gold);
+}
+
+.song-info {
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 0.5rem 0;
+}
+
+.chord-sheet {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.lyrics {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: #333;
+    background-color: #fafafa;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 3px solid var(--accent-gold);
+    overflow-x: auto;
+}
+
+.pattern-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--accent-gold);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.pattern-count {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.practice-tips-song {
+    background-color: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #4caf50;
+}
+
+.practice-tips-song ol {
+    padding-left: 1.5rem;
+}
+
+.practice-tips-song li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.next-steps {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.next-steps h3 {
+    color: white;
+    margin-top: 0;
+}
+
+.next-steps a {
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+.next-steps a:hover {
+    color: white;
+}
+
+/* ============================================
+   9. PRACTICE PAGE STYLES
+   ============================================ */
+
+
+.tips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tip-card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    min-width: 250px;
+    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-gold);
+}
+
+.tip-card h3 {
+    color: var(--wood-brown);
+    font-size: 1.2rem;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.tip-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Practice routine with background image */
+.practice-routine-bg {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/israel-palacio-Y20JJ_ddy9M-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.practice-routine-bg:hover {
+    transform: none;
+}
+
+.routine-overlay {
+    padding: 2.5rem;
+    color: white;
+}
+
+.routine-overlay h2 {
+    color: white;
+}
+
+.routine-intro {
+    font-size: 1.1rem;
+    color: #ecf0f1;
+    margin-bottom: 2rem;
+}
+
+.routine-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.step-card {
+    flex: 1 1 calc(50% - 1.5rem);
+    min-width: 280px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.step-number {
+    background: linear-gradient(135deg, var(--wood-brown), var(--accent-gold));
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.step-card h3 {
+    color: var(--charcoal);
+    text-align: center;
+    margin-top: 0;
+}
+
+.step-duration {
+    text-align: center;
+    color: var(--wood-brown);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.step-card ul {
+    color: #555;
+    list-style: none;
+    padding-left: 0;
+}
+
+.step-card ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.step-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+.routine-quote {
+    background-color: rgba(243, 156, 18, 0.9);
+    color: white;
+    margin-top: 2rem;
+    border-left-color: white;
+}
+
+.bonus-tips {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.bonus-tips h3 {
+    color: var(--charcoal);
+    margin-top: 0;
+}
+
+/* Motivation section */
+.motivation-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.motivation-card {
+    flex: 1 1 calc(50% - 1.5rem);
+    min-width: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.motivation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.motivation-card h3 {
+    color: white;
+    margin-top: 0;
+}
+
+.motivation-card p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================
+   10. ABOUT PAGE STYLES
+
+   ============================================ */
+
+/* Purpose section with background */
+.about-purpose {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/jamie-street-_94HLr_QXo8-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Educational section with background */
+.about-educational {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/caught-in-joy-ptVBlniJi50-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Audience section with background */
+.about-audience {
+     background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/nicholas-green-nPz8akkUmDI-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-purpose:hover,
+.about-educational:hover,
+.about-audience:hover {
+    transform: none;
+}
+
+.about-content-overlay {
+    padding: 2.5rem;
+}
+
+.about-purpose h2,
+.about-educational h2,
+.about-audience h2 {
+    color: white;
+    text-align: center;
+}
+
+.about-purpose p,
+.about-educational p,
+.about-audience p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.purpose-details,
+.educational-features,
+.audience-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.detail-item,
+.feature-box,
+.profile-card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    min-width: 250px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover,
+.feature-box:hover,
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.detail-item h4,
+.feature-box h4,
+.profile-card h4 {
+    color: var(--charcoal);
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+
+.detail-item p,
+.feature-box p,
+.profile-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.audience-quote {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--charcoal);
+    margin-top: 2rem;
+    border-left-color: var(--accent-gold);
+}
+
+/* CTA section */
+.about-cta {
+    background: linear-gradient(135deg, var(--wood-brown) 0%, var(--accent-gold) 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    border: none;
+}
+
+.about-cta:hover {
+    transform: none;
+}
+
+.about-cta h2 {
+    color: white;
+}
+
+.about-cta p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-primary,
+.cta-secondary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-primary {
+    background-color: white;
+    color: var(--wood-brown);
+}
+
+.cta-primary:hover {
+    background-color: var(--charcoal);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-secondary {
+    background-color: var(--charcoal);
+    color: white;
+}
+
+.cta-secondary:hover {
+    background-color: white;
+    color: var(--charcoal);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   11. FOOTER
+   ============================================ */
+footer {
+    background-color: var(--charcoal);
+    color: var(--off-white);
+    padding: var(--spacing-large);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: var(--spacing-small);
+}
+
+address {
+    font-style: normal;
+    line-height: 1.8;
+    margin-top: var(--spacing-medium);
+}
+
+footer a {
+    color: var(--accent-gold);
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* ============================================
+   12. RESPONSIVE DESIGN
+   
+   ============================================ */
+@media screen and (max-width: 768px) {
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    
+    /* Stack navigation vertically */
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        padding: var(--spacing-medium);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    main {
+        padding: var(--spacing-medium);
+    }
+    
+    section {
+        padding: var(--spacing-medium);
+    }
+    
+    /* Stack lesson content */
+    .lesson-content {
+        flex-direction: column;
+    }
+    
+    /* Stack chord grid */
+    .chord-grid,
+    .video-grid {
+        flex-direction: column;
+    }
+    
+    .chord-card,
+    .video-card {
+        min-width: 100%;
+    }
+    
+    /* Stack tips and steps */
+    .tips-grid .tip-card,
+    .step-card,
+    .motivation-card,
+    .detail-item,
+    .feature-box,
+    .profile-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+    
+    /* Adjust background for mobile */
+    .practice-routine-bg,
+    .about-purpose,
+    .about-educational,
+    .about-audience {
+        background-attachment: scroll;
+    }
+    
+    .routine-overlay,
+    .about-content-overlay {
+        padding: 1.5rem;
+    }
+    
+    .lyrics {
+        font-size: 0.8rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ============================================
+   13. PRINT STYLES
+   ============================================ */
+@media print {
+    nav, footer {
+        display: none;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .lesson,
+    .about-card {
+        box-shadow: none;
+    }
+}
+
+/* ============================================
+
+   ============================================ */
